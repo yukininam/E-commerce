@@ -37,11 +37,11 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="{{ url('admin/add-category') }}" method="POST"  name="add_category" id="add_category">{{ csrf_field() }}
+            <form role="form" action="{{ url('admin/edit-category/'.$categoryDetails->id) }}" method="POST"  name="add_category" id="add_category">{{ csrf_field() }}
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Category Name</label>
-                  <input type="text" name="category_name" id="category_name" class="form-control" placeholder="Category Name">
+                  <input type="text" name="category_name" id="category_name" value="{{ $categoryDetails->name }}" class="form-control" placeholder="Category Name">
                 </div>
                   <!-- select -->
                 <div class="form-group">
@@ -49,22 +49,22 @@
                   <select class="form-control" name="parent_id" id="parent_id">
                     <option value="0">Main Category</option>
                      @foreach($levels as $val)
-                    <option value="{{ $val->id }}">{{ $val->name }}</option>
+                    <option value="{{ $val->id }}"@if($val->id==$categoryDetails->parent_id) selected @endif>{{ $val->name }}</option>
                     @endforeach
                   </select>
                 </div>
                 <div class="form-group">
                   <label>Description</label>
-                  <textarea class="form-control" name="description" id="description" rows="3" placeholder="Description ..."></textarea>
+                  <textarea class="form-control" name="description" id="description" rows="3" placeholder="Description ...">{{ $categoryDetails->description }}</textarea>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">URL</label>
-                  <input type="text" name="url" id="url" class="form-control" placeholder="url">
+                  <input type="text" name="url" id="url"  value="{{ $categoryDetails->url }}" class="form-control" placeholder="url">
                 </div>
 
                  <div class="checkbox">
                   <label>
-                    <input type="checkbox" name="status" id="status" value="1"> Enable
+                    <input type="checkbox" name="status" id="status" value="1" @if($categoryDetails->status == "1") checked @endif value="1"> Enable
                   </label>
                 </div>
                 
@@ -72,7 +72,7 @@
               <!-- /.box-body -->
 
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Add Category</button>
+                <button type="submit" class="btn btn-primary">Update Category</button>
               </div>
             </form>
           </div>

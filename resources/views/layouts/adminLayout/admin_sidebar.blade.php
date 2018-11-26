@@ -9,7 +9,7 @@
           <img src="{{url('images/profile.png')}}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p>{{ Auth::user()->name }}</p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -40,7 +40,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{url('/admin/add-category')}}">Add Categories</a></li>
-            <li><a href="#">View Categories</a></li>
+            <li><a href="{{url('/admin/view-categories')}}">View Categories</a></li>
           </ul>
         </li>
         <li class="treeview">
