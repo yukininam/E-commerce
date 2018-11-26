@@ -17,10 +17,10 @@ Route::get('/', function () {
 //route to Admin
 Route::match(['get', 'post'], '/admin','AdminController@login');
 //route to admin dashboard
-Route::get('/admin/dashboard','AdminController@dashboard');	
+
 
 Route::group(['middleware' => ['auth']], function () {
-	
+	Route::get('/admin/dashboard','AdminController@dashboard');		
 	//Route::get('/admin/settings','AdminController@settings');
 	//Route::get('/admin/check-pwd','AdminController@chkPassword');
 	//Route::match(['get', 'post'],'/admin/update-pwd','AdminController@updatePassword');
