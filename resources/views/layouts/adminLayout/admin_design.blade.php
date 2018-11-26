@@ -34,7 +34,10 @@
 
 <script src="{{ asset('js/backend_js/bootstrap.min.js') }}"></script>
 
+<script src="{{ asset('js/backend_js/matrix.form_validation.js') }}"></script>
+
 <script src="{{ asset('js/backend_js/adminlte.min.js') }}"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 
 
 </body>

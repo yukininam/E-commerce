@@ -28,8 +28,7 @@
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
 
-
-        @if(Session::has('flash_message_error')) 
+ @if(Session::has('flash_message_error')) 
             <div class="alert alert-error alert-block">
                 <button type="button" class="close" data-dismiss="alert">×</button> 
                     <strong>{!! session('flash_message_error') !!}</strong>
@@ -41,7 +40,7 @@
                 <button type="button" class="close" data-dismiss="alert">×</button> 
                     <strong>{!! session('flash_message_success') !!}</strong>
             </div>
-        @endif 
+        @endif    
 
     <form action="{{ url('admin') }}" method="post"  role="form">{{ csrf_field() }}
       <div class="form-group has-feedback">

@@ -16,16 +16,19 @@ Route::get('/', function () {
 });
 //route to Admin
 Route::match(['get', 'post'], '/admin','AdminController@login');
-//route to admin dashboard
+
 
 
 Route::group(['middleware' => ['auth']], function () {
+	//route to admin dashboard
 	Route::get('/admin/dashboard','AdminController@dashboard');		
-	//Route::get('/admin/settings','AdminController@settings');
-	//Route::get('/admin/check-pwd','AdminController@chkPassword');
-	//Route::match(['get', 'post'],'/admin/update-pwd','AdminController@updatePassword');
+	Route::get('/admin/settings','AdminController@settings');
+	Route::get('/admin/check-pwd','AdminController@chkPassword');
+	Route::match(['get', 'post'],'/admin/update-pwd','AdminController@updatePassword');
 });
 
+//routes to lougout admin
+Route::get('/logout','AdminController@logout');
 
 Auth::routes();
 
