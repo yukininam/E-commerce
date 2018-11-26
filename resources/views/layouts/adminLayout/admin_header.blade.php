@@ -17,20 +17,21 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="{{url('images/profile.png')}}" class="user-image" alt="User Image">
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs">{{ Auth::user()->name }}</span>
             </a>
             <ul class="dropdown-menu">
               <li class="user-header">
                 <img src="{{url('images/profile.png')}}" class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
+                 {{ Auth::user()->name }}
                   <small>Member since Nov. 2012</small>
                 </p>
+
               </li>
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Update Password</a>
+                  <a href="{{ url('/admin/settings')}}" class="btn btn-default btn-flat">Update Password</a>
                 </div>
                 <div class="pull-right">
                   <a href="{{ url('/logout') }}" class="btn btn-default btn-flat">Sign out</a>
